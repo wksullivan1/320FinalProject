@@ -49,5 +49,21 @@ Contributor(s):
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <mapping resource="dvdrental/Category.hbm.xml"/>
+    <mapping resource="dvdrental/Actor.hbm.xml"/>
+    <mapping resource="dvdrental/Customer.hbm.xml"/>
+    <mapping resource="dvdrental/FilmActor.hbm.xml"/>
+    <mapping resource="dvdrental/Country.hbm.xml"/>
+    <mapping resource="dvdrental/Address.hbm.xml"/>
+    <mapping resource="dvdrental/Inventory.hbm.xml"/>
+    <mapping resource="dvdrental/Payment.hbm.xml"/>
+    <mapping resource="dvdrental/FilmText.hbm.xml"/>
+    <mapping resource="dvdrental/FilmCategory.hbm.xml"/>
+    <mapping resource="dvdrental/Staff.hbm.xml"/>
+    <mapping resource="dvdrental/Film.hbm.xml"/>
+    <mapping resource="dvdrental/Rental.hbm.xml"/>
+    <mapping resource="dvdrental/Language.hbm.xml"/>
+    <mapping resource="dvdrental/City.hbm.xml"/>
+    <mapping resource="dvdrental/Store.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
