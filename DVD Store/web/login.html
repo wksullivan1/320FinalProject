@@ -11,11 +11,12 @@
 </head>
 
    
-    <div class="login-page">
-        
-         <script type="text/javascript">
-        function test(){
-           
+    <div class="login-page">        
+    <script type="text/javascript">
+        function register(){           
+            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        };
+        function signIn(){           
             $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
         };
     </script>
@@ -26,13 +27,14 @@
       <input type="password" placeholder="password"/>
       <input type="text" placeholder="email address"/>
       <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
+      <p class="message">Already registered? <a href="#" onclick="signIn()">Sign In</a></p>
     </form>
+      
     <form class="login-form">
       <input type="text" placeholder="username"/>
       <input type="password" placeholder="password"/>
       <button>login</button>
-      <p class="message">Not registered? <a href="#" onclick="test()">Create an account</a></p>
+      <p class="message">Not registered? <a href="#" onclick="register()">Create an account</a></p>
     </form>
   </div>
 </div>
