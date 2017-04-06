@@ -20,7 +20,7 @@ public class FilmHelper
 
     public FilmHelper()
     {
-        this.session = HibernateUtil.getSessionFactory().getCurrentSession();
+        this.session = HibernateUtil.getSessionFactory().openSession();
     }
 
     public List getFilmTitles(int startID, int endID)
@@ -28,6 +28,7 @@ public class FilmHelper
         List<Film> filmList = null;
         try
         {
+            session = HibernateUtil.getSessionFactory().openSession();
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from Film as film where film.filmId between '" + startID + "' and '" + endID + "'");
             filmList = (List<Film>) q.list();
@@ -43,6 +44,7 @@ public class FilmHelper
         List<Actor> actorList = null;
         try
         {
+            session = HibernateUtil.getSessionFactory().openSession();
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from Actor as actor where actor.actorId in (select filmActor.actor.actorId from FilmActor as filmActor where filmActor.film.filmId='" + filmId + "')");
             actorList = (List<Actor>) q.list();
@@ -60,10 +62,10 @@ public class FilmHelper
         List<Category> categoryList = null;
         try
         {
+            session = HibernateUtil.getSessionFactory().openSession();
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from Category as category where category.categoryId in (select filmCat.category.categoryId from FilmCategory as filmCat where filmCat.film.filmId='" + filmId + "')");
             categoryList = (List<Category>) q.list();
-
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -79,6 +81,7 @@ public class FilmHelper
 
         try
         {
+            session = HibernateUtil.getSessionFactory().openSession();
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from Film as film where film.filmId=" + filmId);
             film = (Film) q.uniqueResult();
@@ -97,6 +100,7 @@ public class FilmHelper
 
         try
         {
+            session = HibernateUtil.getSessionFactory().openSession();
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from Language as lang where lang.languageId=" + langId);
             language = (Language) q.uniqueResult();
