@@ -23,16 +23,19 @@
         
   <div class="form">
     <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
-      <input type="text" placeholder="email address"/>
+      <input type="radio" name="store" value="1">Store 1
+      <input type="radio" name="store" value="2">Store 2
+      <input type="text" name="fistName" placeholder="First Name"/>
+      <input type="text" name="lastName" placeholder="Last Name"/>
+      <input type="text" name="email" placeholder="email address"/>
+      <input type="password" name = "password" placeholder="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
       <button>create</button>
       <p class="message">Already registered? <a href="#" onclick="signIn()">Sign In</a></p>
     </form>
       
     <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
+      <input type="email" name = "email" autocomplete="on" placeholder="email"/>
+      <input type="password" name ="password" placeholder="password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
       <button>login</button>
       <p class="message">Not registered? <a href="#" onclick="register()">Create an account</a></p>
       <p class="message"> Manager or Staff?<a href="#">Click Here</a></p>
