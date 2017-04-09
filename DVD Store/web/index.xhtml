@@ -61,7 +61,7 @@ and open the template in the editor.
                     </h:column>
                 </h:dataTable>
             </h:form>
-            <h:form>
+            <h:form class="formTwo">
                 <h:dataTable value="#{filmController.filmTitles}"
                              var="item" border="0" class="ShoppingCart"
                              cellpadding="2"
@@ -81,6 +81,8 @@ and open the template in the editor.
                         <h:outputText value="#{item.rentalRate}"/>
                     </h:column>
                 </h:dataTable>
+                 <h:commandLink action="#" 
+                               value="Checkout" rendered="true"/> 
             </h:form>
         </ui:define>
     </ui:composition>
