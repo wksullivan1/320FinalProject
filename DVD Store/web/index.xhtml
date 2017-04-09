@@ -12,57 +12,76 @@ and open the template in the editor.
     <head>
         <title>Index Page</title>
     </head>
-    <section>
-        <ui:composition template="template.xhtml">
-            <ui:define name="body">
-                <h:form>
-                    <h:commandLink action="#{filmController.previous}" 
-                                   value="Previous #{filmController.pageSize}" 
-                                   rendered="#{filmController.hasPreviousPage}"/> 
-                    <h:commandLink action="#{filmController.next}" 
-                                   value="Next #{filmController.pageSize}" 
-                                   rendered="#{filmController.hasNextPage}"/>
-                    <h:dataTable value="#{filmController.filmTitles}"
-                                 var="item" border="0" 
-                                 cellpadding="2" 
-                                 cellspacing="0" 
-                                 rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
-                                 rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Title"/>
-                            </f:facet>
-                            <h:outputText value="#{item.title}"/>
+    <ui:composition template="template.xhtml">
+        <ui:define name="body">
+            <h:form class="formMain">
+                <h:commandLink action="#{filmController.previous}" 
+                               value="Previous #{filmController.pageSize}" 
+                               rendered="#{filmController.hasPreviousPage}"
+                               class="prev"/> 
+                <h:commandLink action="#{filmController.next}" 
+                               value="Next #{filmController.pageSize}" 
+                               rendered="#{filmController.hasNextPage}"
+                               class="next"/>
+                <h:dataTable value="#{filmController.filmTitles}"
+                             var="item" border="0" class="one"
+                             cellpadding="2" 
+                             cellspacing="0" 
+                             rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                             rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Title"/>
+                        </f:facet>
+                        <h:outputText value="#{item.title}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Description"/>
+                        </f:facet>
+                        <h:outputText value="#{item.description}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Price"/>
+                        </f:facet>
+                        <h:outputText value="#{item.rentalRate}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Info"/>
+                        </f:facet>
+                        <h:commandLink action="#{filmController.prepareView}" value="View"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Add to cart"/>
+                        </f:facet>
+                        <h:commandLink value="Add"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form>
+                <h:dataTable value="#{filmController.filmTitles}"
+                             var="item" border="0" class="ShoppingCart"
+                             cellpadding="2"
+                             cellspacing="0" 
+                             rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                             rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Shopping Cart"/>
+                        </f:facet>
+                        <h:outputText value="#{item.title}"/>
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Description"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Price"/>
-                            </f:facet>
-                            <h:outputText value="#{item.rentalRate}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Info"/>
-                            </f:facet>
-                            <h:commandLink action="#{filmController.prepareView}" value="View"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Add to cart"/>
-                            </f:facet>
-                            <h:commandLink value="Add"/>
-                        </h:column>
-                    </h:dataTable>
-                    <br/>
-                </h:form>
-            </ui:define>
-        </ui:composition>
-    </section>
-    <p><Strong id="stext">Shopping Cart</Strong></p>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Price"/>
+                        </f:facet>
+                        <h:outputText value="#{item.rentalRate}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
