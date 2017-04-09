@@ -16,24 +16,22 @@ body {
   font-weight: 400;
   text-rendering: optimizeLegibility;
 }
-table {
-    width: 60%;
+
+form.formMain {
+    width: 50%;
+    float: left;
 }
 
-#ShoppingCart{
+table.ShoppingCart{
+    position: fixed;
     width: 30%;
     float: right;
-    position: fixed;
+    right: 5%;
+    top: 5%;
+   
 }
-#stext{
-    float: right;
-    position: fixed;
-}
-section {
-  float: left;
-  margin: 0 1.5%;
-  width: 63%;
-}
+
+
 
 div.table-title {
    display: block;
