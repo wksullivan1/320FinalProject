@@ -22,15 +22,14 @@ form.formMain {
     float: left;
 }
 
-table.ShoppingCart{
+form.formTwo{
     position: fixed;
     width: 30%;
     float: right;
     right: 5%;
-    top: 5%;
+    top: 0;
    
 }
-
 
 
 div.table-title {
